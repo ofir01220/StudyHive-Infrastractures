@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: socket-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: socket
+  template:
+    metadata:
+      labels:
+        app: socket
+    spec:
+      containers:
+      - name: socket-container
+        image: your-socket-image:latest # !!! REPLACE with your actual socket image name and tag !!!
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080 # !!! CHANGE if your socket server runs on a different port inside the container !!!

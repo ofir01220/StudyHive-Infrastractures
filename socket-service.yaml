@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: socket-service # This name is how other pods (like frontend/backend) can reach the socket server
+spec:
+  selector:
+    app: socket
+  ports:
+    - protocol: TCP
+      port: 8080 # Port the service will be exposed on WITHIN the cluster
+      targetPort: 8080 # !!! Port on the POD to forward traffic to (must match containerPort above) !!!
+  type: ClusterIP # Only reachable within the cluster network

@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend-container
+        image: your-backend-image:latest # !!! REPLACE with your actual backend image name and tag !!!
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 5000 # !!! CHANGE if your backend runs on a different port inside the container !!!
+        # Add environment variables here if needed, for example:
+        # env:
+        # - name: DATABASE_URL
+        #   value: "your_database_connection_string"
+        # - name: FRONTEND_URL
+        #   value: "http://frontend-service" # Example using the service name
