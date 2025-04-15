@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: frontend-container # Name of the container within the pod
-        image: your-frontend-image:latest # !!! REPLACE with your actual frontend image name and tag !!!
+        image: my-frontend-app:latest # !!! REPLACE with your actual frontend image name and tag !!!
         imagePullPolicy: IfNotPresent # Important for local images
         ports:
         - containerPort: 3000 # !!! CHANGE if your frontend runs on a different port inside the container !!!
