@@ -14,13 +14,10 @@ spec:
     spec:
       containers:
       - name: backend-container
-        image: your-backend-image:latest # !!! REPLACE with your actual backend image name and tag !!!
+        image: my-backend-app:latest 
         imagePullPolicy: IfNotPresent
         ports:
-        - containerPort: 5000 # !!! CHANGE if your backend runs on a different port inside the container !!!
-        # Add environment variables here if needed, for example:
-        # env:
-        # - name: DATABASE_URL
-        #   value: "your_database_connection_string"
-        # - name: FRONTEND_URL
-        #   value: "http://frontend-service" # Example using the service name
+        - containerPort: 4000 
+        env:
+        - name: MONGO_URI
+          value: "your_database_connection_string"

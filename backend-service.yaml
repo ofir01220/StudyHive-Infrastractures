@@ -7,6 +7,6 @@ spec:
     app: backend
   ports:
     - protocol: TCP
-      port: 5000 # Port the service will be exposed on WITHIN the cluster
-      targetPort: 5000 # !!! Port on the POD to forward traffic to (must match containerPort above) !!!
-  type: ClusterIP # Only reachable within the cluster network (default)
+      port: 5000 
+      targetPort: 4000 
+  type: ClusterIP 
